@@ -35,6 +35,7 @@ group :development, :test do
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.0.0'
 end
 
 group :development do
@@ -45,9 +46,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'rspec'
 
 group :production do
   gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers', require: false
 end
