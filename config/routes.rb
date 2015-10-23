@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'page/home'
+
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -54,5 +57,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root 'application#hello'
+  root 'page#home'
 end
