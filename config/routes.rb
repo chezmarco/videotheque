@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'page/home'
+  get 'page/detail'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

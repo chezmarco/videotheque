@@ -1,0 +1,100 @@
+
+
+<center>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>
+          <%= image_tag(@record.img_small, width: '160') %>
+        </td>
+        <td>
+          <table class="table table-striped">
+            <tr>
+              <td class="row-title1">
+                Nom :
+              </td>
+              <td>
+                <%= @record.nom.html_safe %>  
+                <% if @record.nomoriginal != "" %> 
+                <br> (<%= @record.nomoriginal %>) 
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-title1"> 
+                Réalisateur : 
+              </td>
+              <td>
+                <%= @record.realisateur.html_safe %>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-title1">
+                Acteur(s) :
+              </td>
+              <td>
+                <%= @record.acteur.html_safe %>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-title1">
+                Année :
+              </td>
+              <td>
+                <%= @record.annee %>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-title1">
+                Nationalité :
+              </td>
+              <td>
+                <%= @record.nationalite.html_safe %>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-title1">
+                Genre :
+              </td>
+              <td>
+                <%= @record.genre.html_safe %>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-title1">
+                Durée :
+              </td>
+              <td>
+                <%= @record.duree %>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-title1">
+                Résumé du film :
+              </td>
+              <td>
+                <%= @record.resume.html_safe %>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <center>
+    <%= image_tag(@record.img_big) %>
+  </center>
+  <p>
+    &nbsp;
+  </p>
+  <p>
+    &nbsp;
+  </p>
+</center>
+
+
+
+
+
+
+
