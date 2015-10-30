@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AppTest1</title>
+  <title>Videotheque</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'defaults' %>
   <%= csrf_meta_tags %>
@@ -10,7 +10,7 @@
 
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-        <%= link_to "sample app", '#', id: "logo" %>
+        <%= link_to "Videotheque", '#', id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
 			<% if user_signed_in? %>
@@ -24,8 +24,6 @@
       </div>
     </header>
     <div class="container">
-      <% if notice %><p class="notice"><%= notice %></p><% end %>
-      <% if alert %><p class="alert"><%= alert %></p><% end %>
       <%= yield %>
     </div>
 
