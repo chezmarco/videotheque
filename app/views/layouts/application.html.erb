@@ -5,42 +5,136 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <% content_for :menu_genre do %>
+    <% @genres.each do |genre| %>
+      <li><%= link_to genre, page_home_path(:genre => genre) %></li>
+      <li class="divider" role="separator"></li>
+    <% end %>
+  <% end %>
+
+  <% content_for :menu_realisateur do %>
+    <% @realisateurs.each do |realisateur| %>
+      <li><%= link_to realisateur, page_home_path(:realisateur => realisateur) %></li>
+      <li class="divider" role="separator"></li>
+    <% end %>
+  <% end %>
+
+  <% content_for :menu_acteur do %>
+    <% @acteurs.each do |acteur| %>
+      <li><%= link_to acteur, page_home_path(:acteur => acteur) %></li>
+      <li class="divider" role="separator"></li>
+   <% end %>
+  <% end %>
+
 </head>
 <body>
-
-    <header class="navbar navbar-fixed-top navbar-inverse">
+    <!--nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        <%= link_to "Videotheque", '#', id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-left">
+        <div class="navbar-header">
+          <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand">Project name</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <% if content_for? :menu %>
-                      <%= yield :menu %>
-                <% end %>
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider" role="separator"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <% if current_user.try(:admin?) %>
-              <li><%= link_to "Admin", new_user_session_path %></li>
-            <% else %>
-              <li><%= link_to "User", new_user_session_path %></li>
-            <% end %>
-      			<% if user_signed_in? %>
-      			  <li><%= link_to "Sign out", destroy_user_session_path, method: :get %></li>
-      			<% else %>
-      			  <li><%= link_to "Login", new_user_session_path %></li>
-      			  <li><%= link_to "Sign up", new_user_registration_path %></li>
-      			<% end %>
+            <li><a href="../navbar/">Default</a></li>
+            <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
+            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
           </ul>
-        </nav>
+        </div>
       </div>
-    </header>
+    </nav-->
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+      <div class="navbar-header">
+          <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!--%= link_to "Videotheque", '#', id: "logo" %-->
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+        <ul class="nav navbar-nav ">
+          <li>
+          <form class="navbar-form" action="/page/home" method="get" role="search">
+              <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search" name="search" id="search">
+                  <div class="input-group-btn">
+                      <button class="btn btn-inverse" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  </div>
+              </div>
+            </form>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre <b class="caret"></b></a>
+            <ul class="dropdown-menu scrollable-menu">
+              <% if content_for? :menu_genre %>
+                    <%= yield :menu_genre %>
+              <% end %>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Réalisateur <b class="caret"></b></a>
+            <ul class="dropdown-menu scrollable-menu">
+              <% if content_for? :menu_realisateur %>
+                    <%= yield :menu_realisateur %>
+              <% end %>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Acteur <b class="caret"></b></a>
+            <ul class="dropdown-menu scrollable-menu">
+              <% if content_for? :menu_acteur %>
+                    <%= yield :menu_acteur %>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user.try(:admin?) %>
+            <li class="right"><%= link_to "Admin", new_user_session_path %></li>
+          <% else %>
+            <li class="right"><%= link_to "User", new_user_session_path %></li>
+          <% end %>
+    			<% if user_signed_in? %>
+    			  <li class="right"><%= link_to "Sign out", destroy_user_session_path, method: :get %></li>
+    			<% else %>
+    			  <li class="right"><%= link_to "Login", new_user_session_path %></li>
+    			  <li class="right"><%= link_to "Sign up", new_user_registration_path %></li>
+    			<% end %>
+        </ul>
+      </div>
+      </div>
+    </nav>
     <div class="container">
       <%= yield %>
     </div>
 
 </body>
 </html>
+

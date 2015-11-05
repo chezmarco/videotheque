@@ -1,26 +1,5 @@
 <center>
     <% @records.each do |record| %>
-	    <%= link_to image_tag(record.img_small, width: '160'), page_detail_path(:id => record) %>
-      <% @acteurs += record.acteur.nil? ? [] : record.acteur.split(",").map{ |s| capitalize_first_letter(s.strip)} %>
-      <% @realisateurs += record.realisateur.nil? ? [] : record.realisateur.split(",").map{ |s| capitalize_first_letter(s.strip)} %>
-      <% @genres += record.genre.nil? ? [] : record.genre.split(",").map{ |s| capitalize_first_letter(s.strip)} %>
-      <% @nationalites += record.nationalite.nil? ? [] : record.nationalite.split(",").map{ |s| capitalize_first_letter(s.strip)} %>
-      <% @annees += record.annee.nil? ? [] : [record.annee] %>
-    <% end %>
-    </br>
-    <%= @acteurs = treat(@acteurs.uniq.nil? ? @acteurs : @acteurs.uniq) %>
-    </br>
-    <%= @realisateurs = treat(@realisateurs.uniq.nil? ? @realisateurs : @realisateurs.uniq) %>
-    </br>
-    <%= @genres = treat(@genres.uniq.nil? ? @genres : @genres.uniq) %>
-    </br>
-    <%= @nationalites = treat(@nationalites.uniq.nil? ? @nationalites : @nationalites.uniq) %>
-    </br>
-    <%= @annees = (@annees.uniq.nil? ? @annees : @annees.uniq).sort! %>
-
-    <% content_for :menu do %>
-          <% @genres.each do |genre| %>
-            <li><a href="#"><%= genre %></a></li>
-          <% end %>
+      <%= link_to image_tag(record.img_small, width: '160'), page_detail_path(:id => record) %>
     <% end %>
 </center>
