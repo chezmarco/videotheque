@@ -18,8 +18,7 @@ class PageController < ApplicationController
     elsif params[:acteur]
       @records = Record.where("acteur like ?",  "%#{params[:acteur]}%")
     elsif params[:search]
-      @records = Record.where("acteur like ? or nom like ? or nomoriginal like ? or realisateur like ? or genre like ? or annee like ? or nationalite like ?",  
-        "%#{params[:search]}%",  "%#{params[:search]}%",  "%#{params[:search]}%",  "%#{params[:search]}%",  "%#{params[:search]}%",  "%#{params[:search]}%", "%#{params[:search]}%")
+      @records = Record.where("acteur like ?", "%#{params[:search]}%")
     else
     	@records = Record.all
     end
