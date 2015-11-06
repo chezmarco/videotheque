@@ -225,3 +225,6 @@ input{
     margin-left: 0;
 }
 
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+  max-height: none;
+}
