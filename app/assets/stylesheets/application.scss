@@ -72,7 +72,7 @@ body {
 }
 
 nav .container {
-    padding: 5px 20px 5px 10px;
+    padding: 5px 20px 5px 0px;
     margin: 5px 10px;
     width: 100%;
 }
@@ -186,4 +186,26 @@ input{
 
 .control-group {
   margin: 10px;
+}
+
+#nav-butons {
+  margin: 8px;
+}
+
+/*.btn-my {
+  //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  @include button-variant(white, #222, #222);
+}*/
+
+.btn-my{
+    background: #0099cc;
+    color: #ffffff;
+}
+.btn-my:hover { 
+  border-color: #C0C0C0; 
+  background-color: #C0C0C0; 
+}
+
+.container > .navbar-header {
+    margin-left: 0;
 }
