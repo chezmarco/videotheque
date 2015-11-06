@@ -76,10 +76,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <!--%= link_to "Videotheque", '#', id: "logo" %-->
+          <% if !user_signed_in? %>
+            <%= link_to "Videotheque", '#', id: "logo" %>
+          <% end %>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
         <ul class="nav navbar-nav ">
+        <% if user_signed_in? %>
           <li>
           <form class="navbar-form" action="/page/home" method="get" role="search">
               <div class="input-group">
@@ -114,6 +117,7 @@
               <% end %>
             </ul>
           </li>
+        <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user.try(:admin?) %>

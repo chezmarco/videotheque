@@ -11,15 +11,15 @@ class ApplicationController < ActionController::Base
     render text: "hello, world!"
   end
 
-  def self.capitalize_first_letter(s)
+  private      
+  def capitalize_first_letter(s)
     s.nil? ? s : s.split.map(&:capitalize)*' '
   end
 
-  def self.treat(a)
+  def treat(a)
     a.sort!.reject{ |s| s.empty? }
   end
 
-  private      
     def set_data
 
       @allrecords = Record.all

@@ -59,6 +59,9 @@ $grid-float-breakpoint: $screen-md-min;
 */
 
 /* universal */
+.border-form-div {
+  text-align: center;
+}
 
 .row-title1 {
   font-style: italic;
@@ -153,4 +156,30 @@ p {
 
 .navbar-form {
   margin: 8px 0;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+}
+
+input{
+  margin: 10px auto;
+}
+
+@media (min-width: $screen-sm-min) {
+  .form-control {
+    width: 300px;
+  }
 }
