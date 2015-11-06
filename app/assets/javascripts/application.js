@@ -16,3 +16,4 @@
 //= require bootstrap
 //= require_tree .
 
+$(".navbar-collapse").css({ maxHeight: $(window).height() - $(".navbar-header").height() + "px" });
