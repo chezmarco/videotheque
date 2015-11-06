@@ -227,6 +227,6 @@ input{
 }
 
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
-  max-height: none;
-  overflow-y: visible;
+  max-height: 50vh;
+  overflow-y: hidden;
 }
