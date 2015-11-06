@@ -145,7 +145,7 @@ p {
 }
 
 .scrollable-menu {
-    height: auto;
+    height: 90vh;
     max-height: 90vh;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -228,5 +228,5 @@ input{
 }
 
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
-  max-height: 5000px;
+  max-height: none;
 }
