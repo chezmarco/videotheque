@@ -179,8 +179,23 @@ input{
 }
 
 @media (min-width: $screen-sm-min) {
+
   .form-control {
     width: 300px;
+  }
+  
+}
+
+@media (max-width: $screen-sm-min) {
+
+  .hide-on-small-device {
+    display: none;
+  }
+  
+  .img-full-width
+  {
+    width: 100%;
+    z-index: 0;
   }
 }
 
@@ -209,3 +224,4 @@ input{
 .container > .navbar-header {
     margin-left: 0;
 }
+
