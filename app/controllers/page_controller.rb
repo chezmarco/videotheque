@@ -14,9 +14,9 @@ class PageController < ApplicationController
     if params[:genre]
       @records = Record.where("LOWER(genre) LIKE ?",  "%#{params[:genre].downcase}%")
     elsif params[:realisateur]
-      @records = Record.where("LOWER(realisateur) LIKE ?",  "%#{params[:realisateur.downcase]}%")
+      @records = Record.where("LOWER(realisateur) LIKE ?",  "%#{params[:realisateur].downcase}%")
     elsif params[:acteur]
-      @records = Record.where("LOWER(acteur) LIKE ?",  "%#{params[:acteur.downcase]}%")
+      @records = Record.where("LOWER(acteur) LIKE ?",  "%#{params[:acteur].downcase}%")
     elsif params[:search]
       @records = Record.where("LOWER(acteur) LIKE ? OR LOWER(nom) LIKE ? OR LOWER(nomoriginal) LIKE ? 
         OR LOWER(realisateur) LIKE ? OR LOWER(genre) LIKE ? OR CAST(annee AS text) LIKE ? OR LOWER(nationalite) LIKE ?",  
