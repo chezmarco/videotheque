@@ -145,8 +145,8 @@ p {
 }
 
 .scrollable-menu {
-    height: 90vh;
-    max-height: 90vh;
+    height: auto;
+    max-height: 60vh;
     overflow-x: hidden;
     overflow-y: visible;
 }
