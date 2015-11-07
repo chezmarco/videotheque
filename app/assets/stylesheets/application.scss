@@ -181,6 +181,11 @@ input{
 }
 
 @media (min-width: $screen-sm-min) {
+
+  .form-control {
+    width: 300px;
+  }
+
 }
 
 .img-small {
