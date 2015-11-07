@@ -1,5 +1,5 @@
 <center>
     <% @records.each do |record| %>
-      <%= link_to image_tag(record.img_small, width: '160'), page_detail_path(:id => record) %>
+      <%= link_to image_tag(record.img_small, :class => "img-small"), page_detail_path(:id => record) %>
     <% end %>
 </center>
