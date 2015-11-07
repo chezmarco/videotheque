@@ -253,7 +253,8 @@ input{
 }
 
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
-  max-height: 500px;
+  height: auto;
+  max-height: 80vh;
   overflow-y: scroll;
 }
 
