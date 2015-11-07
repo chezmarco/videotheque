@@ -148,7 +148,7 @@ p {
     height: auto;
     max-height: 300px;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: visible;
 }
 
 /*.nav, .navbar-nav, .navbar-right {
@@ -228,5 +228,5 @@ input{
 
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
   max-height: 300px;
-  overflow-y: scroll;
+  overflow-y: visible;
 }
