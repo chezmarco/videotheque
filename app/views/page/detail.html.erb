@@ -1,6 +1,7 @@
 
 
 <center>
+  <%= image_tag(@record.img_big, :class => "img-full-width show-on-small-device") %>
   <table class="table table-striped">
     <tbody>
       <tr>
@@ -81,9 +82,7 @@
       </tr>
     </tbody>
   </table>
-  <center>
-    <%= image_tag(@record.img_big, :class => "img-full-width") %>
-  </center>
+  <%= image_tag(@record.img_big, :class => "img-full-width hide-on-small-device") %>
   <p>
     &nbsp;
   </p>

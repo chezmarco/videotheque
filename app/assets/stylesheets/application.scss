@@ -181,21 +181,24 @@ input{
 }
 
 @media (min-width: $screen-sm-min) {
-
-  .form-control {
-    width: 300px;
-  }
-  
 }
 
 .img-small {
   width: 160px;
 }
 
+.show-on-small-device {
+  display: none;
+}
+
 @media (max-width: $screen-sm-min) {
 
   .hide-on-small-device {
     display: none;
+  }
+  
+  .show-on-small-device {
+    display: inline;
   }
   
   .img-full-width
@@ -239,3 +242,5 @@ input{
   max-height: none;
   /*overflow-y: visible;*/
 }
+
+  
