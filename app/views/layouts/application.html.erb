@@ -29,7 +29,6 @@
       <li class="divider" role="separator"></li>
    <% end %>
   <% end %>
-
 </head>
 <body>
     <!--nav class="navbar navbar-inverse navbar-fixed-top">
@@ -91,6 +90,28 @@
           <% end %>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
+        <script>
+          $(function () {
+            $("#navbar li.dropdown").click( function() {
+                  if ($(this).hasClass('open')){
+                    $("#navbar.navbar-collapse.collapse.in li.linav").show();
+                    $(this).css('background-color', '#0099cc !important')
+                    alert("titi");
+                  }
+                  else {
+                    /*$("#navbar.navbar-collapse.collapse.in").hide();*/
+                    $("#navbar.navbar-collapse.collapse.in li.linav").hide();
+                    $(this).show();
+                    alert("toto");
+                  }
+            });
+            $("button.navbar-toggle").click( function() {
+              $("#navbar.navbar-collapse.collapse li.linav").show();
+            });
+            return false;
+          });
+        </script>
+
         <ul class="nav navbar-nav ">
         <% if user_signed_in? %>
           <li class="linav">
