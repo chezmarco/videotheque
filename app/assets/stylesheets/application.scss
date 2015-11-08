@@ -16,7 +16,7 @@
  // control the screen sizes
 
 /* uncomment and modify to change defaults bootstrap sizes  */
-/*
+
 $screen-xs-min: 300px;
 $screen-sm-min: 400px;
 $screen-md-min: 1000px;
@@ -25,7 +25,7 @@ $screen-lg-min: 1200px;
 // this tells which screen size to use to start breaking on
 // will tell navbar when to collapse
 $grid-float-breakpoint: $screen-md-min;
-*/
+
 
 
 @import "bootstrap-sprockets";
