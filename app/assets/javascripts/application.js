@@ -25,10 +25,13 @@ $(function () {
           $(this).css('background-color', '#0099cc !important')
         }
         else {
+          /*$("#navbar.navbar-collapse.collapse.in").hide();*/
           $("#navbar.navbar-collapse.collapse.in li.linav").hide();
           $(this).show();
         }
   });
-
+  $("button.navbar-toggle").click( function() {
+    $("#navbar.navbar-collapse.collapse li.linav").show();
+  });
   return false;
 });
