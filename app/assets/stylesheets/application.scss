@@ -258,4 +258,11 @@ input{
   overflow-y: scroll;
 }
 
-  
+/*.dropdown-menu {
+  background-color: #333;
+}*/
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #0099cc;
+    color: #fff;
+}

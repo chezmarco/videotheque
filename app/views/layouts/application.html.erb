@@ -93,7 +93,7 @@
         <div class="navbar-collapse collapse" id="navbar">
         <ul class="nav navbar-nav ">
         <% if user_signed_in? %>
-          <li>
+          <li class="linav">
           <form class="navbar-form" action="/page/home" method="get" role="search">
               <div class="input-group">
                   <input type="text" class="form-control" placeholder="Search" name="search" id="search">
@@ -103,7 +103,7 @@
               </div>
             </form>
           </li>
-          <li class="dropdown">
+          <li class="dropdown linav">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre <b class="caret"></b></a>
             <ul class="dropdown-menu scrollable-menu">
               <% if content_for? :menu_genre %>
@@ -111,7 +111,7 @@
               <% end %>
             </ul>
           </li>
-          <li class="dropdown">
+          <li class="dropdown linav">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Réalisateur <b class="caret"></b></a>
             <ul class="dropdown-menu scrollable-menu">
               <% if content_for? :menu_realisateur %>
@@ -119,7 +119,7 @@
               <% end %>
             </ul>
           </li>
-          <li class="dropdown">
+          <li class="dropdown linav">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Acteur <b class="caret"></b></a>
             <ul class="dropdown-menu scrollable-menu">
               <% if content_for? :menu_acteur %>
@@ -136,10 +136,10 @@
             <li class="right"><%= link_to "User", new_user_session_path %></li>
           <% end %> -->
     			<% if user_signed_in? %>
-    			  <li class="right"><%= link_to "Sign out", destroy_user_session_path, method: :get %></li>
+    			  <li class="linav"><%= link_to "Sign out", destroy_user_session_path, method: :get %></li>
     			<% else %>
-    			  <li class="right"><%= link_to "Login", new_user_session_path %></li>
-    			  <li class="right"><%= link_to "Sign up", new_user_registration_path %></li>
+    			  <li class="linav"><%= link_to "Login", new_user_session_path %></li>
+    			  <li class="linav"><%= link_to "Sign up", new_user_registration_path %></li>
     			<% end %>
         </ul>
       </div>
