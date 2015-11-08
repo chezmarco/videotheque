@@ -147,7 +147,7 @@ p {
 
 .scrollable-menu {
     height: auto;
-    /*max-height: 90vh;*/
+    max-height: 1000px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -251,7 +251,7 @@ input{
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
   height: auto;
   max-height: 90vh;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 /*.dropdown-menu {
