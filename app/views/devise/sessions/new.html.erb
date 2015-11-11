@@ -1,3 +1,22 @@
+<script>
+  $(function () {
+    $(".control-group .actions .btn.btn-primary").click( function() {
+          $(".border-form-div").hide();
+          $("div.wait-img").show();
+          //if ($(this).hasClass('open')){
+          //  $("#navbar.navbar-collapse.collapse.in li.linav").show();
+          //  $(this).css('background-color', '#0099cc !important')
+          //}
+          //else {
+            /*$("#navbar.navbar-collapse.collapse.in").hide();*/
+          //  $("#navbar.navbar-collapse.collapse.in li.linav").hide();
+          //  $(this).show();
+          //}
+    });
+    return false;
+  });
+</script>
+
 <div class="border-form-div">
 
 <h2>Log in</h2>
@@ -33,3 +52,8 @@
 
 
 </div>
+<center>
+<div class="wait-img" style="display: none">
+  <%= image_tag("spinner.gif", :class => "spinner", :style => "display: inline;") %>
+</div>
+</center>
