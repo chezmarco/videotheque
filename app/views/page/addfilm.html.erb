@@ -1,0 +1,46 @@
+<center>
+
+<h2>Ajouter un film</h2>
+
+<%= form_for(@record) do |f| %>
+  <div class="control-group">
+      <%= f.text_field :nom, :autofocus => true, :placeholder => 'Nom', :class => "form-control" %>
+  </div>
+  <div class="control-group">
+      <%= f.text_field :nomoriginal, :placeholder => 'Nom Original', :class => "form-control" %>
+  </div>
+  <div class="control-group">
+      <%= f.text_field :realisateur, :placeholder => 'Realisateur(s)', :class => "form-control" %>
+  </div>
+  <div class="control-group">
+      <%= f.text_field :annee, :placeholder => 'Année', :class => "form-control" %>
+  </div>
+  <div class="control-group">
+      <%= f.text_field :genre, :placeholder => 'Genre(s)', :class => "form-control" %>
+  </div>
+  <div class="control-group">
+      <%= f.text_field :nationalite, :placeholder => 'Nationalité(s)', :class => "form-control" %>
+  </div>
+  <div class="control-group">
+      <%= f.text_field :duree, :placeholder => 'Durée(HHhMM)', :class => "form-control" %>
+  </div>
+  <div class="control-group">
+      <%= f.text_field :acteur, :placeholder => 'Acteur(s)', :class => "form-control" %>
+  </div>
+  <div class="control-group">
+      <%= f.text_field :resume, :placeholder => 'Synopsis', :class => "form-control" %>
+  </div>
+  <div class="control-group">
+      <%= f.text_field :img_small, :placeholder => 'Image petite', :class => "form-control" %>
+  </div>
+  <div class="control-group">
+      <%= f.text_field :img_big, :placeholder => 'Image grande', :class => "form-control" %>
+  </div>
+      <%= f.hidden_field :dateajout, :class => "form-control" %>
+
+  <div class="actions">
+    <%= f.submit "Inscription" %>
+  </div>
+<% end %>
+
+</center>

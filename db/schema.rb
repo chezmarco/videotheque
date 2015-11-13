@@ -11,10 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102154646) do
+ActiveRecord::Schema.define(version: 20151113090553) do
 
-# Could not dump table "records" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "records", force: :cascade do |t|
+    t.string  "nom",         default: "", null: false
+    t.string  "nomoriginal"
+    t.string  "codage"
+    t.string  "realisateur"
+    t.integer "annee"
+    t.string  "nationalite"
+    t.string  "genre"
+    t.string  "duree"
+    t.string  "propietaire"
+    t.integer "dateajout"
+    t.string  "nbrecd"
+    t.string  "idpret"
+    t.integer "datepret"
+    t.string  "acteur"
+    t.string  "resume"
+    t.string  "img_small"
+    t.string  "img_big"
+    t.string  "note"
+    t.string  "note2"
+    t.string  "note3"
+    t.string  "version"
+    t.string  "pret"
+    t.string  "reserv"
+  end
+
+  add_index "records", ["acteur"], name: "index_records_on_acteur"
+  add_index "records", ["annee"], name: "index_records_on_annee"
+  add_index "records", ["genre"], name: "index_records_on_genre"
+  add_index "records", ["id"], name: "index_records_on_id"
+  add_index "records", ["img_small"], name: "index_records_on_img_small"
+  add_index "records", ["nationalite"], name: "index_records_on_nationalite"
+  add_index "records", ["nom"], name: "index_records_on_nom"
+  add_index "records", ["nomoriginal"], name: "index_records_on_nomoriginal"
+  add_index "records", ["realisateur"], name: "index_records_on_realisateur"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

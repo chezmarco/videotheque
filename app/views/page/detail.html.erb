@@ -8,17 +8,15 @@
         <td class="hide-on-small-device">
           <%= image_tag(@record.img_small, width: '160', :class => "hide-on-small-device") %>
         </td>
-        <td>
+        <td style="width: 100%">
           <table class="table table-striped">
             <tr>
               <td class="row-title1">
                 Titre
               </td>
-              <td>
+              <td style="width: 100%">
                 <%= @record.nom.html_safe %>  
-                <% if @record.nomoriginal != "" %> 
-                <br> (<%= @record.nomoriginal %>) 
-                <% end %>
+                <%= @record.nomoriginal.nil? ? "" : "<br><small><i>(#{@record.nomoriginal})</i></small>".html_safe %>
               </td>
             </tr>
             <tr>
@@ -26,7 +24,7 @@
                 Réalisateur
               </td>
               <td>
-                <%= @record.realisateur.html_safe %>
+                <%= @record.realisateur.nil? ? "" : @record.realisateur.html_safe %>
               </td>
             </tr>
             <tr>
@@ -34,7 +32,7 @@
                 Acteur(s)
               </td>
               <td>
-                <%= @record.acteur.html_safe %>
+                <%= @record.acteur.nil? ? "" : @record.acteur.html_safe %>
               </td>
             </tr>
             <tr>
@@ -50,7 +48,7 @@
                 Nationalité
               </td>
               <td>
-                <%= @record.nationalite.html_safe %>
+                <%= @record.nationalite.nil? ? "" : @record.nationalite.html_safe %>
               </td>
             </tr>
             <tr>
@@ -58,7 +56,7 @@
                 Genre
               </td>
               <td>
-                <%= @record.genre.html_safe %>
+                <%= @record.genre.nil? ? "" :  @record.genre.html_safe %>
               </td>
             </tr>
             <tr>
@@ -74,7 +72,7 @@
                 Synopsis
               </td>
               <td>
-                <%= @record.resume.html_safe %>
+                <%= @record.resume.nil? ? "" : @record.resume.html_safe %>
               </td>
             </tr>
           </table>
