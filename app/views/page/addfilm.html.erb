@@ -1,46 +1,76 @@
 <center>
-
 <h2>Ajouter un film</h2>
+<div id="addfilm-div">
 
-<%= form_for(@record) do |f| %>
-  <div class="control-group">
-      <%= f.text_field :nom, :autofocus => true, :placeholder => 'Nom', :class => "form-control" %>
-  </div>
-  <div class="control-group">
-      <%= f.text_field :nomoriginal, :placeholder => 'Nom Original', :class => "form-control" %>
-  </div>
-  <div class="control-group">
-      <%= f.text_field :realisateur, :placeholder => 'Realisateur(s)', :class => "form-control" %>
-  </div>
-  <div class="control-group">
-      <%= f.text_field :annee, :placeholder => 'Année', :class => "form-control" %>
-  </div>
-  <div class="control-group">
-      <%= f.text_field :genre, :placeholder => 'Genre(s)', :class => "form-control" %>
-  </div>
-  <div class="control-group">
-      <%= f.text_field :nationalite, :placeholder => 'Nationalité(s)', :class => "form-control" %>
-  </div>
-  <div class="control-group">
-      <%= f.text_field :duree, :placeholder => 'Durée(HHhMM)', :class => "form-control" %>
-  </div>
-  <div class="control-group">
-      <%= f.text_field :acteur, :placeholder => 'Acteur(s)', :class => "form-control" %>
-  </div>
-  <div class="control-group">
-      <%= f.text_field :resume, :placeholder => 'Synopsis', :class => "form-control" %>
-  </div>
-  <div class="control-group">
-      <%= f.text_field :img_small, :placeholder => 'Image petite', :class => "form-control" %>
-  </div>
-  <div class="control-group">
-      <%= f.text_field :img_big, :placeholder => 'Image grande', :class => "form-control" %>
-  </div>
-      <%= f.hidden_field :dateajout, :class => "form-control" %>
-
-  <div class="actions">
-    <%= f.submit "Inscription" %>
-  </div>
+<%= form_tag(page_addfilm_path, :method => "get") do %>
+  <%= text_field_tag :allocine, params[:allocine], placeholder: "Lien Allocine", class: "form-control" %>
+  <%= submit_tag "Start", :name => nil, class: "btn btn-primary" %>
 <% end %>
-
+<br/>
+  <div class="control-group">
+<table id="allo-table">
+  <tr>
+<%= form_for(@record) do |f| %>
+    <td><%= f.label 'Titre' %></td>
+    <td><%= f.text_field :nom, :autofocus => true, :placeholder => 'Titre', :class => "form-control", value: @allo_titre %></td>
+  </tr>
+  <tr>
+    <td><%= f.label 'Titre Original' %></td>
+    <td><%= f.text_field :nomoriginal, :placeholder => 'Titre Original', :class => "form-control", value: @allo_titreoriginal %></td>
+  </tr>
+  <tr>
+    <td><%= f.label 'Realisateur(s)' %></td>
+    <td><%= f.text_field :realisateur, :placeholder => 'Realisateur(s)', :class => "form-control", value: @allo_realisateurs  %></td>
+  </tr>
+  <tr>
+    <td><%= f.label 'Année' %></td>
+    <td><%= f.text_field :annee, :placeholder => 'Année', :class => "form-control", value: @allo_annee  %></td>
+  </tr>
+  <tr>
+    <td><%= f.label 'Genre(s)' %></td>
+    <td><%= f.text_field :genre, :placeholder => 'Genre(s)', :class => "form-control", value: @allo_genres  %></td>
+  </tr>
+  <tr>
+    <td><%= f.label 'Nationalité(s)' %></td>
+    <td><%= f.text_field :nationalite, :placeholder => 'Nationalité(s)', :class => "form-control", value: @allo_nationalites  %></td>
+  </tr>
+  <tr>
+    <td><%= f.label 'Durée(HHhMM)' %></td>
+    <td><%= f.text_field :duree, :placeholder => 'Durée(HHhMM)', :class => "form-control", value: @allo_duree %></td>
+  </tr>
+  <tr>
+    <td><%= f.label 'Acteur(s)' %></td>
+    <td><%= f.text_field :acteur, :placeholder => 'Acteur(s)', :class => "form-control", value: @allo_acteurs %></td>
+  </tr>
+  <tr>
+    <td><%= f.label 'Synopsis' %></td>
+    <td><%= f.text_field :resume, :placeholder => 'Synopsis', :class => "form-control", value: @allo_synopsis %></td>
+  </tr>
+  <tr>
+    <td><%= f.label 'Image petite' %></td>
+    <td><%= f.text_field :img_small, :placeholder => 'Image petite', :class => "form-control", value: @allo_img_small %></td>
+  </tr>
+  <tr>
+    <td><%= f.label 'Image grande' %></td>
+    <td><%= f.text_field :img_big, :placeholder => 'Image grande', :class => "form-control", value: @allo_img_big %></td>
+  </tr>
+  <tr>
+    <td colspan="2" >
+      <center>
+        <div class="actions">
+          <%= f.submit "Inscription", class: "btn btn-primary"%>
+        </div>
+      </center>
+    </td>
+  </tr>
+<% end %>
+</table>
+<% if @allo_img_small != "" %>
+  <%= image_tag(@allo_img_small) %>
+<% end %>
+<% if @allo_img_big != "" %>
+  <%= image_tag(@allo_img_big) %>
+<% end %>
+  </div>
+</div>
 </center>

@@ -2,7 +2,6 @@ class RecordsController < ApplicationController
 
   def index
     @records = Record.all
-
   end
 
   def show
@@ -18,6 +17,7 @@ class RecordsController < ApplicationController
 
   def create
       @record = Record.new(record_params)
+      @record.dateajout = Time.now.to_time.to_i
       if @record.save
         redirect_to page_detail_path(:id => @record.id)
       else
@@ -30,7 +30,11 @@ class RecordsController < ApplicationController
 
   def destroy
   end
-    def record_params
-      params.require(:record).permit(:nom, :nomoriginal, :annee, :genre, :realisateur, :nationalite, :duree, :acteur, :resume, :img_small, :img_big)
-    end
+
+  def record_params
+    params.require(:record).permit(:nom, :nomoriginal, :annee, :genre, :realisateur, :nationalite, :duree, :acteur, :resume, :img_small, :img_big, :dateajout)
+  end
+
+
+
 end

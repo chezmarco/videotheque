@@ -42,13 +42,6 @@ class ApplicationController < ActionController::Base
       @realisateurs = treat(@realisateurs.uniq.nil? ? @realisateurs : @realisateurs.uniq)
       @nationalites = treat(@nationalites.uniq.nil? ? @nationalites : @nationalites.uniq)
       
-      # require 'net/http'
-      # url = URI.parse('http://www.allocine.fr/film/fichefilm_gen_cfilm=229868.html')
-      # req = Net::HTTP::Get.new(url.to_s)
-      # res = Net::HTTP.start(url.host, url.port) {|http|
-      #   http.request(req)
-      # }
-      # @res = res.body.to_s.force_encoding("UTF-8").html_safe
     end
 
 end
