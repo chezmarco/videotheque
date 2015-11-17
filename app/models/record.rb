@@ -5,8 +5,8 @@ class Record < ActiveRecord::Base
 	#validates :NOM, presence: true
   
   #specify that the img_small is a paperclip file attachment
-  has_attached_file :img_small, :path => "app/assets/images/:id.jpg", :url => ":id.jpg"
-  has_attached_file :img_big, :path => "app/assets/images/:id_max.jpg", :url => ":id_max.jpg"
+  has_attached_file :img_small, :path => ":rails_root/public/system/images/:id.jpg", :url => "/system/images/:id.jpg"
+  has_attached_file :img_big, :path => ":rails_root/public/system/images/:id_max.jpg", :url => "/system/images/:id_max.jpg"
   do_not_validate_attachment_file_type :img_small
   do_not_validate_attachment_file_type :img_big
 
