@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113090553) do
+ActiveRecord::Schema.define(version: 20151117115601) do
 
   create_table "records", force: :cascade do |t|
-    t.string  "nom",         default: "", null: false
+    t.string  "nom",                 default: "", null: false
     t.string  "nomoriginal"
     t.string  "codage"
     t.string  "realisateur"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20151113090553) do
     t.string  "version"
     t.string  "pret"
     t.string  "reserv"
+    t.string  "img_small_file_name"
+    t.string  "img_big_file_name"
   end
 
   add_index "records", ["acteur"], name: "index_records_on_acteur"

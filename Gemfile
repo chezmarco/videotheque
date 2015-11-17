@@ -32,10 +32,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Devise gem to users authentications
 gem 'devise'
 
+# Nokogiri gem to get and parse html pages from allocine
 gem 'nokogiri'
 
+# Paperclip gem for managing file uploads.  If you're not using rails 3 or 4, you'll need a different version.
+gem 'paperclip'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -4,7 +4,7 @@
 
 <%= form_tag(page_addfilm_path, :method => "get") do %>
   <%= text_field_tag :allocine, params[:allocine], placeholder: "Lien Allocine", class: "form-control" %>
-  <%= submit_tag "Start", :name => nil, class: "btn btn-primary" %>
+  <%= submit_tag "Recupérer les données", :name => nil, class: "btn btn-primary" %>
 <% end %>
 <br/>
   <div class="control-group">
@@ -48,29 +48,34 @@
   </tr>
   <tr>
     <td><%= f.label 'Image petite' %></td>
-    <td><%= f.text_field :img_small, :placeholder => 'Image petite', :class => "form-control", value: @allo_img_small %></td>
+    <td><%= f.text_field :img_small_url, :placeholder => 'Image petite', :class => "form-control", value: @allo_img_small %></td>
   </tr>
+  <% if @allo_img_small != "" %>
+    <tr>
+      <td colspan="2"><%= image_tag(@allo_img_small) %></td>
+    </tr>
+  <% end %>
   <tr>
     <td><%= f.label 'Image grande' %></td>
-    <td><%= f.text_field :img_big, :placeholder => 'Image grande', :class => "form-control", value: @allo_img_big %></td>
+    <td><%= f.text_field :img_big_url, :placeholder => 'Image grande', :class => "form-control", value: @allo_img_big %></td>
   </tr>
+  <% if @allo_img_big != "" %>
+    <tr>
+      <td colspan="2"><%= image_tag(@allo_img_big) %></td>
+    </tr>
+  <% end %>
   <tr>
     <td colspan="2" >
+    <br/>
       <center>
         <div class="actions">
-          <%= f.submit "Inscription", class: "btn btn-primary"%>
+          <%= f.submit "Enregistrer", class: "btn btn-primary"%>
         </div>
       </center>
     </td>
   </tr>
 <% end %>
 </table>
-<% if @allo_img_small != "" %>
-  <%= image_tag(@allo_img_small) %>
-<% end %>
-<% if @allo_img_big != "" %>
-  <%= image_tag(@allo_img_big) %>
-<% end %>
   </div>
 </div>
 </center>

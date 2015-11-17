@@ -17,7 +17,13 @@ class RecordsController < ApplicationController
 
   def create
       @record = Record.new(record_params)
+
+      #pull the image from the specified url and set the record's img_small
+      @record.img_small_from_url(params[:record][:img_small_url])
+      @record.img_big_from_url(params[:record][:img_big_url])
+
       @record.dateajout = Time.now.to_time.to_i
+
       if @record.save
         redirect_to page_detail_path(:id => @record.id)
       else
