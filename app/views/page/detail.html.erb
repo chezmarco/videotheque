@@ -16,7 +16,7 @@
               </td>
               <td style="width: 100%">
                 <%= @record.nom.html_safe %>  
-                <%= @record.nomoriginal.nil? ? "" : "<br><small><i>(#{@record.nomoriginal})</i></small>".html_safe %>
+                <%= @record.nomoriginal.nil? || @record.nomoriginal == "" ? "" : "<br><small><i>(#{@record.nomoriginal})</i></small>".html_safe %>
               </td>
             </tr>
             <tr>
