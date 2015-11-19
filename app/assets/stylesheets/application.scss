@@ -267,3 +267,8 @@ input{
   display: inline;
   margin: 10px;
 }
+
+.dropdown li.active {
+    background-color: #0099cc;
+    color: #fff;
+}

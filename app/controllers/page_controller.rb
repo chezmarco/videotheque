@@ -11,20 +11,35 @@ class PageController < ApplicationController
   helper_method :capitalize_first_letter, :treat
   
   def home
+
+    @sort = "date"
+    @sortorder = "dateajout DESC"
+    @titlesortactive = ""
+    @datesortactive = "active"
+
+    if params[:sort]
+      if params[:sort] == "title"
+        @sort = "title"
+        @sortorder = "nom ASC"
+        @titlesortactive = "active"
+        @datesortactive = ""
+      end
+    end
+
     if params[:genre]
-      @records = Record.where("LOWER(genre) LIKE ?",  "%#{params[:genre].downcase}%")
+      @records = Record.where("LOWER(genre) LIKE ?",  "%#{params[:genre].downcase}%").order(@sortorder)
     elsif params[:realisateur]
-      @records = Record.where("LOWER(realisateur) LIKE ?",  "%#{params[:realisateur].downcase}%")
+      @records = Record.where("LOWER(realisateur) LIKE ?",  "%#{params[:realisateur].downcase}%").order(@sortorder)
     elsif params[:acteur]
-      @records = Record.where("LOWER(acteur) LIKE ?",  "%#{params[:acteur].downcase}%")
+      @records = Record.where("LOWER(acteur) LIKE ?",  "%#{params[:acteur].downcase}%").order(@sortorder)
     elsif params[:search]
       @records = Record.where("LOWER(acteur) LIKE ? OR LOWER(nom) LIKE ? OR LOWER(nomoriginal) LIKE ? 
         OR LOWER(realisateur) LIKE ? OR LOWER(genre) LIKE ? OR CAST(annee AS text) LIKE ? OR LOWER(nationalite) LIKE ?",  
         "%#{params[:search].downcase}%",  "%#{params[:search].downcase}%",  "%#{params[:search].downcase}%",  
         "%#{params[:search].downcase}%",  "%#{params[:search].downcase}%",  "%#{params[:search].downcase}%", 
-        "%#{params[:search].downcase}%")
+        "%#{params[:search].downcase}%").order(@sortorder)
     else
-    	@records = Record.all
+    	@records = Record.order(@sortorder).all
     end
   end
 
@@ -140,6 +155,8 @@ class PageController < ApplicationController
       #@allo += " || " + @allo_img_big
 
   end
+
+
 
 
 end

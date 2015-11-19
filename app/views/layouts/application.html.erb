@@ -11,21 +11,21 @@
 
   <% content_for :menu_genre do %>
     <% @genres.each do |genre| %>
-      <li><%= link_to genre, page_home_path(:genre => genre) %></li>
+      <li><%= link_to genre, create_home_path( :genre => genre) %></li>
       <li class="divider" role="separator"></li>
     <% end %>
   <% end %>
 
   <% content_for :menu_realisateur do %>
     <% @realisateurs.each do |realisateur| %>
-      <li><%= link_to realisateur, page_home_path(:realisateur => realisateur) %></li>
+      <li><%= link_to realisateur, create_home_path( realisateur: realisateur ) %></li>
       <li class="divider" role="separator"></li>
     <% end %>
   <% end %>
 
   <% content_for :menu_acteur do %>
     <% @acteurs.each do |acteur| %>
-      <li><%= link_to acteur, page_home_path(:acteur => acteur) %></li>
+      <li><%= link_to acteur, create_home_path( acteur: acteur ) %></li>
       <li class="divider" role="separator"></li>
    <% end %>
   <% end %>
@@ -84,15 +84,19 @@
           <% else %>
           <div id="nav-butons">
             <% unless current_page?(page_home_path) %>
-              <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-arrow-left"), :back, :id => "open-contacts-dialog-btn", :class => "btn btn-my", :method => :get %>
+              <%= button_tag content_tag(:i, "", class: "glyphicon glyphicon-arrow-left"), :id => "back-btn", :class => "btn btn-my" %>
             <% end %>
-            <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-home"), page_home_path, :id => "open-contacts-dialog-btn", :class => "btn btn-my", :method => :get %>
+            <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-home"), page_home_path(sort: @sort), :id => "home-btn", :class => "btn btn-my", :method => :get %>
           </div>
           <% end %>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
         <script>
           $(function () {
+            $('button#back-btn').click(function(){
+              parent.history.back();
+              return false;
+            });
             $("#navbar li.dropdown").click( function() {
                   if ($(this).hasClass('open')){
                     $("#navbar.navbar-collapse.collapse.in li.linav").show();
@@ -145,6 +149,14 @@
               <% if content_for? :menu_acteur %>
                     <%= yield :menu_acteur %>
               <% end %>
+            </ul>
+          </li>
+          <li class="dropdown linav">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trier <b class="caret"></b></a>
+            <ul class="dropdown-menu scrollable-menu">
+              <li class=<%= @titlesortactive %>><%= link_to "Titre", create_home_path(:sort => "title") %></li>
+              <li class="divider" role="separator"></li>
+              <li class=<%= @datesortactive %>><%= link_to "Dates", create_home_path(:sort => "date") %></li>
             </ul>
           </li>
         <% end %>

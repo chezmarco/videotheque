@@ -11,6 +11,26 @@ class ApplicationController < ActionController::Base
     render text: "hello, world!"
   end
 
+  def create_home_path( option = {} )
+    if option[:sort].nil?
+      option[:sort] = @sort
+    else
+      if params[:genre]
+        option[:genre] = params[:genre]
+      elsif params[:realisateur]
+        option[:realisateur] = params[:realisateur]
+      elsif params[:acteur]
+        option[:acteur] = params[:acteur]
+      elsif params[:nationalites]
+        option[:nationalites] = params[:nationalites]
+      end
+    end
+
+    page_home_path( option ) 
+  end
+
+  helper_method :create_home_path
+
   private      
   def capitalize_first_letter(s)
     s.nil? ? s : s.split.map(&:capitalize)*' '
@@ -20,28 +40,29 @@ class ApplicationController < ActionController::Base
     a.sort!.reject{ |s| s.empty? }
   end
 
-    def set_data
+  def set_data
 
-      @allrecords = Record.all
-      @genres = Array.new
-      @acteurs = Array.new
-      @realisateurs = Array.new
-      @nationalites = Array.new
-      @annees = Array.new
+    @allrecords = Record.all
+    @genres = Array.new
+    @acteurs = Array.new
+    @realisateurs = Array.new
+    @nationalites = Array.new
+    @annees = Array.new
 
-      @allrecords.each do |record|
-        @genres += record.genre.nil? ? [] : record.genre.split(",").map{ |s| capitalize_first_letter(s.strip)}
-        @acteurs += record.acteur.nil? ? [] : record.acteur.split(",").map{ |s| capitalize_first_letter(s.strip)}
-        @realisateurs += record.realisateur.nil? ? [] : record.realisateur.split(",").map{ |s| capitalize_first_letter(s.strip)}
-        @nationalites += record.nationalite.nil? ? [] : record.nationalite.split(",").map{ |s| capitalize_first_letter(s.strip)}
-        @annees += record.annee.nil? ? [] : [record.annee]
-      end
-
-      @genres = treat(@genres.uniq.nil? ? @genres : @genres.uniq)
-      @acteurs = treat(@acteurs.uniq.nil? ? @acteurs : @acteurs.uniq)
-      @realisateurs = treat(@realisateurs.uniq.nil? ? @realisateurs : @realisateurs.uniq)
-      @nationalites = treat(@nationalites.uniq.nil? ? @nationalites : @nationalites.uniq)
-      
+    @allrecords.each do |record|
+      @genres += record.genre.nil? ? [] : record.genre.split(",").map{ |s| capitalize_first_letter(s.strip)}
+      @acteurs += record.acteur.nil? ? [] : record.acteur.split(",").map{ |s| capitalize_first_letter(s.strip)}
+      @realisateurs += record.realisateur.nil? ? [] : record.realisateur.split(",").map{ |s| capitalize_first_letter(s.strip)}
+      @nationalites += record.nationalite.nil? ? [] : record.nationalite.split(",").map{ |s| capitalize_first_letter(s.strip)}
+      @annees += record.annee.nil? ? [] : [record.annee]
     end
+
+    @genres = treat(@genres.uniq.nil? ? @genres : @genres.uniq)
+    @acteurs = treat(@acteurs.uniq.nil? ? @acteurs : @acteurs.uniq)
+    @realisateurs = treat(@realisateurs.uniq.nil? ? @realisateurs : @realisateurs.uniq)
+    @nationalites = treat(@nationalites.uniq.nil? ? @nationalites : @nationalites.uniq)
+    
+  end
+
 
 end
