@@ -1,0 +1,126 @@
+
+
+<div id="editpage">
+<center>
+<div class="show-on-small-device">
+  <%= image_tag(@record.img_big, :class => "img-full-width") %>
+</div>
+<%= form_for(@record) do |f| %>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td class="hide-on-small-device">
+          <%= image_tag(@record.img_small, width: '160') %>
+        </td>
+        <td style="width: 100%">
+          <table class="table table-striped">
+            <tr>
+              <td class="my-title1">
+                Titre
+              </td>
+              <td style="width: 100%">
+                <%= f.hidden_field :id, value: @record.id %>
+                <%= f.text_field :nom, :autofocus => true, :placeholder => 'Titre', :class => "form-control", value: @record.nom %>
+              </td>
+            </tr>
+            <tr>
+              <td class="my-title1"> 
+                Titre original
+              </td>
+              <td>
+                <%= f.text_field :nomoriginal, :placeholder => 'Titre original', :class => "form-control", value:  @record.nomoriginal.nil? || @record.nomoriginal == "" ? "" : @record.nomoriginal %>
+              </td>
+            </tr>
+            <tr>
+              <td class="my-title1"> 
+                Réalisateur(s)
+              </td>
+              <td>
+                <%= f.text_field :realisateur, :placeholder => 'Réalisateur(s)', :class => "form-control", value: @record.realisateur.nil? ? "" : @record.realisateur %>
+              </td>
+            </tr>
+            <tr>
+              <td class="my-title1">
+                Acteur(s)
+              </td>
+              <td>
+                <%= f.text_field :acteur, :placeholder => 'Acteur(s)', :class => "form-control", value: @record.acteur.nil? ? "" : @record.acteur %>
+              </td>
+            </tr>
+            <tr>
+              <td class="my-title1">
+                Année
+              </td>
+              <td>
+                <%= f.text_field :annee, :placeholder => 'Année', :class => "form-control", value: @record.annee %>
+              </td>
+            </tr>
+            <tr>
+              <td class="my-title1">
+                Nationalité(s)
+              </td>
+              <td>
+                <%= f.text_field :nationalite, :placeholder => 'Nationalité(s)', :class => "form-control", value: @record.nationalite.nil? ? "" : @record.nationalite %>
+              </td>
+            </tr>
+            <tr>
+              <td class="my-title1">
+                Genre(s)
+              </td>
+              <td>
+                <%= f.text_field :genre, :placeholder => 'Genre(s)', :class => "form-control", value: @record.genre.nil? ? "" :  @record.genre %>
+              </td>
+            </tr>
+            <tr>
+              <td class="my-title1">
+                Durée
+              </td>
+              <td>
+                <%= f.text_field :duree, :placeholder => 'Durée', :class => "form-control", value: @record.duree %>
+              </td>
+            </tr>
+            <tr>
+              <td class="my-title1">
+                Synopsis
+              </td>
+              <td>
+                <%= f.text_area :resume, :rows => 10, :placeholder => 'Synopsis', :class => "form-control", value: @record.resume.nil? ? "" : @record.resume %>
+              </td>
+            </tr>
+            <tr>
+              <td class="my-title1">
+                Image petite
+              </td>
+              <td>
+                <%= f.text_field :img_small_url, :placeholder => 'Image petite', :class => "form-control", value: @record.img_small_file_name %>
+              </td>
+            </tr>
+            <tr>
+              <td class="my-title1">
+                Image grande
+              </td>
+              <td>
+                <%= f.text_field :img_big_url, :placeholder => 'Image grande', :class => "form-control", value: @record.img_big_file_name %>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="">
+    <%= button_tag :save, :class => "save-edit-btn btn btn-my2" %>
+  </div>
+<% end %>
+  <br/>
+  <div class="hide-on-small-device">
+    <%= image_tag(@record.img_big, :class => "img-full-width") %>
+  </div>
+  <p>
+    &nbsp;
+  </p>
+  <p>
+    &nbsp;
+  </p>
+</center>
+</div>

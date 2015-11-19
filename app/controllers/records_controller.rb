@@ -13,6 +13,7 @@ class RecordsController < ApplicationController
   end
 
   def edit
+      redirect_to page_edit_path(:id => @record.id)
   end
 
   def create
@@ -32,6 +33,12 @@ class RecordsController < ApplicationController
   end
 
   def update
+    @record = Record.find(params[:record][:id])
+    if @record.update_attributes(record_params)
+      redirect_to page_detail_path(:id => @record.id)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

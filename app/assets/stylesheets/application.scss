@@ -64,8 +64,13 @@ $grid-float-breakpoint: $screen-md-min;
   text-align: center;
 }
 
-.row-title1 {
+.my-title1 {
   font-style: italic;
+}
+
+#allo-table label {
+  font-style: italic;
+  font-weight: normal;
 }
 
 body {
@@ -196,6 +201,15 @@ input{
   display: none;
 }
 
+#allo-table td{
+  text-align: right;
+}
+
+#addfilm-div .form-control {
+  display: inline;
+  margin: 10px;
+}
+
 @media (max-width: $screen-sm-min) {
 
   .hide-on-small-device {
@@ -216,8 +230,26 @@ input{
     width: 140px;
   }
 
-  .row-title1 {
+  .my-title1 {
     font-size: x-small;
+  }
+
+  #allo-table label {
+    font-size: x-small;
+  }
+
+  #allo-table {
+    width: 100%;
+  }
+
+  #allo-table td{
+    text-align: left;
+  }
+
+  #addfilm-div .form-control {
+    display: inline;
+    margin: 0px 0px 10px;
+    width: 100%;
   }
 
 }
@@ -239,7 +271,11 @@ input{
     background: #0099cc;
     color: #ffffff;
 }
-.btn-my:hover { 
+.btn-my2{
+    background: #f65036;
+    color: #ffffff;
+}
+.btn-my:hover .btn-my2:hover { 
   border-color: #C0C0C0; 
   background-color: #C0C0C0; 
 }
@@ -263,12 +299,17 @@ input{
     color: #fff;
 }
 
-#addfilm-div .form-control {
+#editpage .form-control {
   display: inline;
-  margin: 10px;
+  margin: 0px;
+  width: 100%;
 }
 
 .dropdown li.active {
     background-color: #0099cc;
     color: #fff;
 }
+
+
+
+

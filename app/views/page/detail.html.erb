@@ -1,17 +1,23 @@
 
 
 <center>
-  <%= image_tag(@record.img_big, :class => "img-full-width show-on-small-device") %>
+<div class="show-on-small-device">
+  <%= image_tag(@record.img_big, :class => "img-full-width") %>
+</div>
   <table class="table table-striped">
     <tbody>
       <tr>
         <td class="hide-on-small-device">
-          <%= image_tag(@record.img_small, width: '160', :class => "hide-on-small-device") %>
+          <%= image_tag(@record.img_small, width: '160') %>
+          <% if current_user.try(:admin?) %>
+            <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-pencil"), page_edit_path(id: @record.id), :class => "edit-btn btn btn-my2", :method => :get %>
+          <% end %>
+
         </td>
         <td style="width: 100%">
           <table class="table table-striped">
             <tr>
-              <td class="row-title1">
+              <td class="my-title1">
                 Titre
               </td>
               <td style="width: 100%">
@@ -20,15 +26,15 @@
               </td>
             </tr>
             <tr>
-              <td class="row-title1"> 
-                Réalisateur
+              <td class="my-title1"> 
+                Réalisateur(s)
               </td>
               <td>
                 <%= @record.realisateur.nil? ? "" : @record.realisateur.html_safe %>
               </td>
             </tr>
             <tr>
-              <td class="row-title1">
+              <td class="my-title1">
                 Acteur(s)
               </td>
               <td>
@@ -36,7 +42,7 @@
               </td>
             </tr>
             <tr>
-              <td class="row-title1">
+              <td class="my-title1">
                 Année
               </td>
               <td>
@@ -44,23 +50,23 @@
               </td>
             </tr>
             <tr>
-              <td class="row-title1">
-                Nationalité
+              <td class="my-title1">
+                Nationalité(s)
               </td>
               <td>
                 <%= @record.nationalite.nil? ? "" : @record.nationalite.html_safe %>
               </td>
             </tr>
             <tr>
-              <td class="row-title1">
-                Genre
+              <td class="my-title1">
+                Genre(s)
               </td>
               <td>
                 <%= @record.genre.nil? ? "" :  @record.genre.html_safe %>
               </td>
             </tr>
             <tr>
-              <td class="row-title1">
+              <td class="my-title1">
                 Durée
               </td>
               <td>
@@ -68,7 +74,7 @@
               </td>
             </tr>
             <tr>
-              <td class="row-title1">
+              <td class="my-title1">
                 Synopsis
               </td>
               <td>
@@ -80,7 +86,12 @@
       </tr>
     </tbody>
   </table>
-  <%= image_tag(@record.img_big, :class => "img-full-width hide-on-small-device") %>
+  <div class="show-on-small-device">
+    <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-pencil"), page_edit_path(id: @record.id), :class => "edit-btn btn btn-my2", :method => :get %>
+  </div>
+  <div class="hide-on-small-device">
+    <%= image_tag(@record.img_big, :class => "img-full-width") %>
+  </div>
   <p>
     &nbsp;
   </p>

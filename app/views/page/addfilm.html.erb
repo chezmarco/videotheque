@@ -2,80 +2,121 @@
 <h2>Ajouter un film</h2>
 <div id="addfilm-div">
 
-<%= form_tag(page_addfilm_path, :method => "get") do %>
-  <%= text_field_tag :allocine, params[:allocine], placeholder: "Lien Allocine", class: "form-control" %>
-  <%= submit_tag "Recupérer les données", :name => nil, class: "btn btn-primary" %>
-<% end %>
+<div class="control-group">
+</div>
+
 <br/>
-  <div class="control-group">
+
+<div class="control-group">
 <table id="allo-table">
+<%= form_tag(page_addfilm_path, :method => "get") do %>
   <tr>
+    <td>
+      <%= label_tag 'Allocine' %>
+      <%= text_field_tag :allocine, params[:allocine], placeholder: "Lien Allocine", class: "form-control" %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <center>
+      <br/>
+      <%= submit_tag "Recupérer les données", :name => nil, class: "btn btn-primary" %>
+      </center>
+      <br/>
+      <hr/>
+    </td>
+  </tr>
+<% end %>
 <%= form_for(@record) do |f| %>
-    <td><%= f.label 'Titre' %></td>
-    <td><%= f.text_field :nom, :autofocus => true, :placeholder => 'Titre', :class => "form-control", value: @allo_titre %></td>
+  <tr>
+    <td >
+      <%= f.label 'Titre' %>
+      <%= f.text_field :nom, :autofocus => true, :placeholder => 'Titre', :class => "form-control", value: @allo_titre %>
+    </td>
   </tr>
   <tr>
-    <td><%= f.label 'Titre Original' %></td>
-    <td><%= f.text_field :nomoriginal, :placeholder => 'Titre Original', :class => "form-control", value: @allo_titreoriginal %></td>
+    <td>
+      <%= f.label 'Titre Original' %>
+      <%= f.text_field :nomoriginal, :placeholder => 'Titre Original', :class => "form-control", value: @allo_titreoriginal %>
+    </td>
   </tr>
   <tr>
-    <td><%= f.label 'Realisateur(s)' %></td>
-    <td><%= f.text_field :realisateur, :placeholder => 'Realisateur(s)', :class => "form-control", value: @allo_realisateurs  %></td>
+    <td>
+      <%= f.label 'Realisateur(s)' %>
+      <%= f.text_field :realisateur, :placeholder => 'Realisateur(s)', :class => "form-control", value: @allo_realisateurs  %>
+    </td>
   </tr>
   <tr>
-    <td><%= f.label 'Année' %></td>
-    <td><%= f.text_field :annee, :placeholder => 'Année', :class => "form-control", value: @allo_annee  %></td>
+    <td>
+      <%= f.label 'Acteur(s)' %>
+      <%= f.text_field :acteur, :placeholder => 'Acteur(s)', :class => "form-control", value: @allo_acteurs %>
+    </td>
   </tr>
   <tr>
-    <td><%= f.label 'Genre(s)' %></td>
-    <td><%= f.text_field :genre, :placeholder => 'Genre(s)', :class => "form-control", value: @allo_genres  %></td>
+    <td>
+      <%= f.label 'Année' %>
+      <%= f.text_field :annee, :placeholder => 'Année', :class => "form-control", value: @allo_annee  %>
+    </td>
   </tr>
   <tr>
-    <td><%= f.label 'Nationalité(s)' %></td>
-    <td><%= f.text_field :nationalite, :placeholder => 'Nationalité(s)', :class => "form-control", value: @allo_nationalites  %></td>
+    <td>
+      <%= f.label 'Nationalité(s)' %>
+      <%= f.text_field :nationalite, :placeholder => 'Nationalité(s)', :class => "form-control", value: @allo_nationalites  %>
+    </td>
   </tr>
   <tr>
-    <td><%= f.label 'Durée(HHhMM)' %></td>
-    <td><%= f.text_field :duree, :placeholder => 'Durée(HHhMM)', :class => "form-control", value: @allo_duree %></td>
+    <td>
+      <%= f.label 'Genre(s)' %>
+      <%= f.text_field :genre, :placeholder => 'Genre(s)', :class => "form-control", value: @allo_genres  %>
+    </td>
   </tr>
   <tr>
-    <td><%= f.label 'Acteur(s)' %></td>
-    <td><%= f.text_field :acteur, :placeholder => 'Acteur(s)', :class => "form-control", value: @allo_acteurs %></td>
+    <td>
+      <%= f.label 'Durée(HHhMM)' %>
+      <%= f.text_field :duree, :placeholder => 'Durée(HHhMM)', :class => "form-control", value: @allo_duree %>
+    </td>
   </tr>
   <tr>
-    <td><%= f.label 'Synopsis' %></td>
-    <td><%= f.text_field :resume, :placeholder => 'Synopsis', :class => "form-control", value: @allo_synopsis %></td>
+    <td>
+      <%= f.label 'Synopsis' %>
+      <%= f.text_field :resume, :placeholder => 'Synopsis', :class => "form-control", value: @allo_synopsis %>
+    </td>
   </tr>
   <tr>
-    <td><%= f.label 'Image petite' %></td>
-    <td><%= f.text_field :img_small_url, :placeholder => 'Image petite', :class => "form-control", value: @allo_img_small %></td>
+    <td>
+      <%= f.label 'Image petite' %>
+      <%= f.text_field :img_small_url, :placeholder => 'Image petite', :class => "form-control", value: @allo_img_small %>
+    </td>
   </tr>
   <% if @allo_img_small != "" %>
     <tr>
-      <td colspan="2"><%= image_tag(@allo_img_small) %></td>
+      <td><%= image_tag(@allo_img_small) %></td>
     </tr>
   <% end %>
   <tr>
-    <td><%= f.label 'Image grande' %></td>
-    <td><%= f.text_field :img_big_url, :placeholder => 'Image grande', :class => "form-control", value: @allo_img_big %></td>
+    <td>
+      <%= f.label 'Image grande' %>
+      <%= f.text_field :img_big_url, :placeholder => 'Image grande', :class => "form-control", value: @allo_img_big %>
+    </td>
   </tr>
   <% if @allo_img_big != "" %>
     <tr>
-      <td colspan="2"><%= image_tag(@allo_img_big) %></td>
+      <td><%= image_tag(@allo_img_big) %></td>
     </tr>
   <% end %>
   <tr>
-    <td colspan="2" >
+    <td>
     <br/>
       <center>
         <div class="actions">
-          <%= f.submit "Enregistrer", class: "btn btn-primary"%>
+          <%= f.submit "Enregistrer", class: "btn btn-my2"%>
         </div>
       </center>
     </td>
   </tr>
 <% end %>
 </table>
-  </div>
+</div>
+
 </div>
 </center>

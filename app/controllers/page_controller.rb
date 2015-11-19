@@ -47,6 +47,10 @@ class PageController < ApplicationController
     @record = Record.find(params[:id])
   end
 
+  def edit
+    @record = Record.find(params[:id])
+  end
+
   def addfilm
     @record = Record.new
     #@titre = "Inscription"

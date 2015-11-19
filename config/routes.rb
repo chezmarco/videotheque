@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'page/home'
   get 'page/detail'
   get 'page/addfilm'
+  get 'page/edit'
 
   resources :records
 

@@ -159,6 +159,11 @@
               <li class=<%= @datesortactive %>><%= link_to "Dates", create_home_path(:sort => "date") %></li>
             </ul>
           </li>
+          <% if current_user.try(:admin?) %>
+            <li>
+            <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-plus-sign"), page_addfilm_path, :class => "edit-btn btn", :method => :get %>
+            </li>
+          <% end %>
         <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
