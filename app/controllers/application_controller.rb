@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def create_home_path( option = {} )
     if option[:sort].nil?
-      option[:sort] = @sort
+      option[:sort] = session[:sort]
     else
       if params[:genre]
         option[:genre] = params[:genre]

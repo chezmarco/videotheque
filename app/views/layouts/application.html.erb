@@ -86,7 +86,7 @@
             <% unless current_page?(page_home_path) %>
               <%= button_tag content_tag(:i, "", class: "glyphicon glyphicon-arrow-left"), :id => "back-btn", :class => "btn btn-my" %>
             <% end %>
-            <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-home"), page_home_path(sort: @sort), :id => "home-btn", :class => "btn btn-my", :method => :get %>
+            <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-home"), page_home_path(sort: session[:sort]), :id => "home-btn", :class => "btn btn-my", :method => :get %>
           </div>
           <% end %>
         </div>

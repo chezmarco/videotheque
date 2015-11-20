@@ -42,6 +42,8 @@ class RecordsController < ApplicationController
   end
 
   def destroy
+    @record = Record.find(params[:id]).destroy
+      redirect_to page_home_path
   end
 
   def record_params

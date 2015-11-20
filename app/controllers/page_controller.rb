@@ -1,5 +1,12 @@
 class PageController < ApplicationController
 
+  # protect some actions to be done only for admin 
+  before_filter :check_access, only: [:edit, :addfilm, :allocine]
+
+  # init sort engine variables 
+  before_filter :sort_engine, only: [:home, :detail, :edit, :addfilm]
+
+
   def capitalize_first_letter(s)
     s.nil? ? s : s.split.map(&:capitalize)*' '
   end
@@ -11,20 +18,6 @@ class PageController < ApplicationController
   helper_method :capitalize_first_letter, :treat
   
   def home
-
-    @sort = "date"
-    @sortorder = "dateajout DESC"
-    @titlesortactive = ""
-    @datesortactive = "active"
-
-    if params[:sort]
-      if params[:sort] == "title"
-        @sort = "title"
-        @sortorder = "nom ASC"
-        @titlesortactive = "active"
-        @datesortactive = ""
-      end
-    end
 
     if params[:genre]
       @records = Record.where("LOWER(genre) LIKE ?",  "%#{params[:genre].downcase}%").order(@sortorder)
@@ -73,7 +66,7 @@ class PageController < ApplicationController
 
   end
 
-
+  private
   def allocine(allo_link)
       require 'rubygems'
       require 'nokogiri'   
@@ -160,6 +153,35 @@ class PageController < ApplicationController
 
   end
 
+
+  protected
+  def check_access
+    redirect_to page_home_path and return unless current_user.try(:admin?)
+  end
+
+  def sort_engine
+    if params[:sort]
+      if params[:sort] == "title"
+        session[:sort] = "title"
+      else
+        session[:sort] = "date"
+      end
+    end
+
+    if session[:sort].nil?
+      session[:sort] = "date"
+    end
+    
+    if session[:sort] == "date"
+      @sortorder = "dateajout DESC"
+      @titlesortactive = ""
+      @datesortactive = "active"
+    else
+      @sortorder = "nom ASC"
+      @titlesortactive = "active"
+      @datesortactive = ""
+    end
+  end
 
 
 

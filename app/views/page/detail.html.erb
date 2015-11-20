@@ -1,5 +1,4 @@
-
-
+<div id="detailpage">
 <center>
 <div class="show-on-small-device">
   <%= image_tag(@record.img_big, :class => "img-full-width") %>
@@ -11,6 +10,7 @@
           <%= image_tag(@record.img_small, width: '160') %>
           <% if current_user.try(:admin?) %>
             <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-pencil"), page_edit_path(id: @record.id), :class => "edit-btn btn btn-my2", :method => :get %>
+            <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-trash"), @record, :class => "edit-btn btn btn-my2", :method => :delete, data: { confirm: "Êtes-vous sûr?" } %>
           <% end %>
 
         </td>
@@ -99,7 +99,7 @@
     &nbsp;
   </p>
 </center>
-
+</div>
 
 
 
