@@ -6,19 +6,7 @@ class PageController < ApplicationController
   # init sort engine variables 
   before_filter :sort_engine, only: [:home, :detail, :edit, :addfilm]
 
-
-  def capitalize_first_letter(s)
-    s.nil? ? s : s.split.map(&:capitalize)*' '
-  end
-
-  def treat(a)
-    a.sort!.reject{ |s| s.empty? }
-  end
-
-  helper_method :capitalize_first_letter, :treat
-  
   def home
-
     if params[:genre]
       @records = Record.where("LOWER(genre) LIKE ?",  "%#{params[:genre].downcase}%").order(@sortorder)
     elsif params[:realisateur]
@@ -171,7 +159,7 @@ class PageController < ApplicationController
     if session[:sort].nil?
       session[:sort] = "date"
     end
-    
+
     if session[:sort] == "date"
       @sortorder = "dateajout DESC"
       @titlesortactive = ""

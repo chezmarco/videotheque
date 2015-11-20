@@ -11,27 +11,7 @@ class ApplicationController < ActionController::Base
     render text: "hello, world!"
   end
 
-  def create_home_path( option = {} )
-    if option[:sort].nil?
-      option[:sort] = session[:sort]
-    else
-      if params[:genre]
-        option[:genre] = params[:genre]
-      elsif params[:realisateur]
-        option[:realisateur] = params[:realisateur]
-      elsif params[:acteur]
-        option[:acteur] = params[:acteur]
-      elsif params[:nationalites]
-        option[:nationalites] = params[:nationalites]
-      end
-    end
-
-    page_home_path( option ) 
-  end
-
-  helper_method :create_home_path
-
-  private      
+  protected      
   def capitalize_first_letter(s)
     s.nil? ? s : s.split.map(&:capitalize)*' '
   end
@@ -40,6 +20,7 @@ class ApplicationController < ActionController::Base
     a.sort!.reject{ |s| s.empty? }
   end
 
+  private
   def set_data
 
     @allrecords = Record.all
