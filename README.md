@@ -1,19 +1,19 @@
 # VIDEOTHEQUE
 
-Projet de videothÃ¨que sous Ruby on Rails.
-Les caractÃ©ristiques sont:
+Projet de videothèque sous Ruby on Rails.
+Les caractéristiques sont:
 
   - Lister tous les films
   - Trier par dates ou titres
-  - Filtrer par Genre ou RÃ©alisateur ou Acteurs
-  - DÃ©tails d'un film
-  - Ajouter un film dans la vidÃ©othÃ¨que (avec option de rÃ©cupÃ©ration des donnÃ©es sur Allocine.fr)
-  - Editer un film pour modifier ses donnÃ©es
+  - Filtrer par Genre ou Réalisateur ou Acteurs
+  - Détails d'un film
+  - Ajouter un film dans la vidéothèque (avec option de récupération des données sur Allocine.fr)
+  - Editer un film pour modifier ses données
   - Supprimer un film
-  - Retour Ã  la page principale
-  - Retour Ã  la page prÃ©cÃ©dente
+  - Retour à la page principale
+  - Retour à la page précédente
 
-*Affichage optimisÃ© pour petits Ã©crans (smartphones)*
+*Affichage optimisé pour petits écrans (smartphones)*
 
 ---
 
