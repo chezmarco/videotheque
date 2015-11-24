@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+puts 'SETTING UP DEFAULT ADMIN LOGIN'
+user = User.create! :email => 'admin@admin.com', :password => 'administrator', :password_confirmation => 'administrator'
+user.toggle!(:admin)
+puts 'New user created: ' << user.email
